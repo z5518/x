@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工牌制作</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入二维码生成库 -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <style>
+        /* 工牌制作页面的独立样式 */
+        .employee-badge {
+            width: 100%;
+            height: auto;
+            padding-top: 62.5%;
+            background-image: url('https://i.imgur.com/eSYqmnC.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .employee-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            overflow: hidden;
+            background-color: #e0e0e0;
+        }
+
+        .employee-info {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 60%;
+            text-align: left;
+            color: #333;
+            font-size: 1.5vw;
+            font-weight: 500;
+        }
+
+        /* 新增二维码区域样式 */
+        .qr-code {
+            position: absolute;
+            top: 70%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            overflow: hidden; /* 防止二维码溢出 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加黑色阴影效果 */
+        }
+
+        /* 控制二维码图片大小 */
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">证书制作</a>
+        <a href="2.html">工牌制作</a>
+        <a href="3">生成支付链接</a>
+    </nav>
+    <div class="main-container" id="main-container">
+        <div class="input-section">
+            <input type="text" id="employee-name" placeholder="姓名">
+            <input type="text" id="employee-phone" placeholder="手机号">
+            <input type="date" id="employee-joinDate">
+            <input type="file" id="employee-avatarInput" accept="image/*" onchange="openCropModal(this.files[0])">
+            <button onclick="generateEmployeeBadge()">生成工牌</button>
+        </div>
+        <div class="employee-badge">
+            <img id="employee-avatar" class="employee-avatar" src="" alt="头像">
+            <div class="employee-info">
+                <p id="employee-nameDisplay"></p>
+                <p id="employee-phoneDisplay"></p>
+                <p id="employee-joinDateDisplay"></p>
+            </div>
+            <!-- 新增二维码区域 -->
+            <div id="qr-code" class="qr-code" onclick="generateQRCode()"></div>
+        </div>
+    </div>
+    <!-- 头像裁剪模态框 -->
+    <div id="crop-modal">
+        <div id="crop-modal-content">
+            <canvas id="crop-canvas"></canvas>
+            <div id="crop-buttons">
+                <button onclick="zoomIn()">放大</button>
+                <button onclick="zoomOut()">缩小</button>
+                <!-- 调用 cropAndSetAvatar 函数时传入正确的头像元素 ID -->
+                <button onclick="cropAndSetAvatar('employee-avatar')">裁剪并应用</button>
+                <button onclick="closeCropModal()">取消</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function generateQRCode() {
+            const link = prompt('请输入要生成二维码的链接：');
+            if (link) {
+                // 确保链接以 http 或 https 开头
+                const validLink = link.startsWith('http') ? link : `https://${link}`;
+                const qr = qrcode(0, 'L');
+                qr.addData(validLink);
+                qr.make();
+                const qrCodeDiv = document.getElementById('qr-code');
+                // 设置二维码图片大小，边距为 0
+                qrCodeDiv.innerHTML = qr.createImgTag(4, 0); 
+            }
+        }
+    </script>
+</body>
+
+</html>

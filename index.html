@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>证书生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">证书制作</a>
+        <a href="2.html">工牌制作</a>
+        <a href="3">生成支付链接</a>
+    </nav>
+    <div class="main-container" id="main-container">
+        <div class="input-section">
+            <input type="text" id="name" placeholder="姓名">
+            <input type="text" id="phone" placeholder="手机号">
+            <input type="date" id="joinDate">
+            <input type="file" id="avatarInput" accept="image/*" onchange="openCropModal(this.files[0])">
+            <button onclick="generateCertificate()">生成证书</button>
+        </div>
+        <div class="certificate">
+            <img id="avatar" class="avatar" src="" alt="头像">
+            <div class="info">
+                <p id="nameDisplay"></p>
+                <p id="phoneDisplay"></p>
+                <p id="joinDateDisplay"></p>
+            </div>
+        </div>
+    </div>
+    <!-- 头像裁剪模态框 -->
+    <div id="crop-modal">
+        <div id="crop-modal-content">
+            <canvas id="crop-canvas"></canvas>
+            <div id="crop-buttons">
+                <button onclick="zoomIn()">放大</button>
+                <button onclick="zoomOut()">缩小</button>
+                <!-- 调用 cropAndSetAvatar 函数时传入正确的头像元素 ID -->
+                <button onclick="cropAndSetAvatar('avatar')">裁剪并应用</button>
+                <button onclick="closeCropModal()">取消</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

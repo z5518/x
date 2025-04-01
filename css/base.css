@@ -1,0 +1,197 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    background-color: #f4f4f4; /* xx */
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto 10px;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 针对小屏幕设备（如手机）调整顶部距离 */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 0px;
+    }
+}
+
+/* h1 xx */
+h1 {
+    font-weight: bold; /* xx */
+    font-size: 24px;   /* xx */
+    color: #000;       /* xx */
+    margin-bottom: 20px; /* xx */
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2C3E50;
+}
+
+/* h2 xx */
+h2 {
+    font-weight: bold; /* xx */
+    font-size: 18px;   /* xx  */
+    color: #000;       /* xx */
+    margin-top: 20px; /* 减小标题顶部间距 */
+    margin-bottom: 10px; /* 减小标题底部间距 */
+    padding-bottom: 4px;
+    border-left: 4px solid #2C3E50;
+    padding-left: 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px 0; /* 减小图片上下间距 */
+    border-radius: 5px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin: 15px 0; /* 减小视频上下间距 */
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-image: url('your-background-image-url.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 150px; /* 为左侧导航栏留出空间 */
+}
+
+/* 菜单切换按钮样式 */
+#menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+#menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #2c3e50;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+#menu-toggle.active span {
+    background-color: white; /* 修改展开后按钮颜色为白色 */
+}
+
+#menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* 导航栏样式 */
+nav {
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column; /* 竖着排列 */
+    justify-content: start;
+    align-items: start;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    position: fixed; /* 固定导航栏 */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 150px;
+    z-index: 100; /* 确保导航栏在最上层 */
+}
+
+nav a {
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background - color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #34495e;
+    color: white;
+}
+
+nav a.active {
+    background-color: #34495e;
+}
+
+/* 手机屏幕样式 */
+@media (max-width: 768px) {
+    body {
+        padding-left: 0;
+        padding-top: 50px;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        height: auto; /* 让高度自适应内容 */
+        width: 100%; /* 宽度占满屏幕 */
+        position: fixed; /* 固定在顶部 */
+        top: 0; /* 从顶部开始 */
+        left: 0;
+        z-index: 100; /* 确保在最上层 */
+        padding-top: 50px; /* 增加顶部内边距，避免与菜单按钮重叠 */
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        text-align: left;
+        padding: 15px 25px;
+    }
+}
+
+/* 客服悬浮按钮样式 */
+#customer-service-button {
+    position: fixed;
+    bottom: 30px;
+    right: 10px;
+    z-index: 200;
+    cursor: pointer;
+}
+
+#customer-service-button img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

@@ -4,122 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>工牌制作</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- 引入二维码生成库 -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
-    <style>
-        /* 工牌制作页面的独立样式 */
-        .employee-badge {
-            width: 100%;
-            height: auto;
-            padding-top: 62.5%;
-            background-image: url('https://i.imgur.com/eSYqmnC.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-        }
-
-        .employee-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            position: absolute;
-            top: 20%;
-            left: 10%;
-            object-fit: cover;
-            border: 4px solid #fff;
-            overflow: hidden;
-            background-color: #e0e0e0;
-        }
-
-        .employee-info {
-            position: absolute;
-            top: 30%;
-            left: 30%;
-            width: 60%;
-            text-align: left;
-            color: #333;
-            font-size: 1.5vw;
-            font-weight: 500;
-        }
-
-        /* 新增二维码区域样式 */
-        .qr-code {
-            position: absolute;
-            top: 70%;
-            left: 10%;
-            width: 100px;
-            height: 100px;
-            cursor: pointer;
-            overflow: hidden; /* 防止二维码溢出 */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加黑色阴影效果 */
-        }
-
-        /* 控制二维码图片大小 */
-        .qr-code img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-    </style>
+    <title>Excellent Member</title>
+    <link rel="stylesheet" href="css/base.css">
 </head>
 
 <body>
-    <nav>
-        <a href="index.html">证书制作</a>
-        <a href="2.html">工牌制作</a>
-        <a href="3.html">生成支付链接</a>
+    <!-- 添加菜单切换按钮 -->
+    <div id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav id="nav-menu">
+        <a href="1.html">Discover Boralex</a>
+        <a href="2.html">Excellent Member</a>
+        <a href="3.html">Comment recharger</a>
     </nav>
-    <div class="main-container" id="main-container">
-        <div class="input-section">
-            <input type="text" id="employee-name" placeholder="姓名">
-            <input type="text" id="employee-phone" placeholder="手机号">
-            <input type="date" id="employee-joinDate">
-            <input type="file" id="employee-avatarInput" accept="image/*" onchange="openCropModal(this.files[0])">
-            <button onclick="generateEmployeeBadge()">生成工牌</button>
-        </div>
-        <div class="employee-badge">
-            <img id="employee-avatar" class="employee-avatar" src="" alt="头像">
-            <div class="employee-info">
-                <p id="employee-nameDisplay"></p>
-                <p id="employee-phoneDisplay"></p>
-                <p id="employee-joinDateDisplay"></p>
-            </div>
-            <!-- 新增二维码区域 -->
-            <div id="qr-code" class="qr-code" onclick="generateQRCode()"></div>
-        </div>
+    <div class="container">
+        <h2>Outstanding Member</h2>
+
+        <img src="https://i.imgur.com/9l1Gx3H.jpg" alt="Cosmic Image">
+
+        <p>This is Amanda's third day at Boralex. In just three days, she's already earned over 1500 ZMW and successfully withdrawn her bonus. Successful people are always in the minority. Because only those who seize opportunities and move towards their goals can fulfill their dreams. Being satisfied with the status quo will lead to stagnation, and continuous learning is the key to progress.💪</p>
+
+        <h2>Outstanding Member</h2>
+
+        <img src="https://i.imgur.com/3ABIyYf.jpg" alt="Cosmic Image">
+
+        <p>Everyone has their own "pressures". Whether as a father or in any other role, we all have our own responsibilities to bear. Only by constantly improving ourselves and becoming better can we have the confidence to face some possible unknown difficulties in the future. Mr. Mukuka joined Boralex because of family pressure. Now he can earn 500 ZMW every day through Boralex, which is enough for him to face some of the responsibilities he has to bear with ease.</p>
+
+        <h2>Outstanding Member</h2>
+
+        <img src="https://i.imgur.com/vCncDBg.jpg" alt="Cosmic Image">
+
+        <p>Maureen was a supermarket attendant before joining Boralex. Now, after joining Boralex, she can earn around 600 ZMW every day. She shared with me photos of her having a get - together dinner with her family. The significance of hard work became tangible at this moment. I've always believed that "the you in the future depends on the you right now." Being generous to the future means devoting everything to the present.</p>
+
+        <h2>Outstanding Member</h2>
+
+        <img src="https://i.imgur.com/5y0cW60.jpg" alt="Cosmic Image">
+
+        <p>Cartel joined about a month ago. With the money he earned through hard work at Boralex, he bought himself a mobile phone worth around 32,000 ZMW as a reward for his efforts. A journey of a thousand miles begins with a single step. Only by starting can there be change. Even a magnificent building is made up of seemingly insignificant bricks and stones, one by one. After you join Boralex, I'll patiently guide and help you.</p>
+
+        <h2>Outstanding Member</h2>
+
+        <img src="https://i.imgur.com/r4t04z4.jpg" alt="Cosmic Image">
+
+        <p>Mwansa took out the money he earned this month because his father's business needed some funds, so he planned to give the money to his father. He worked at Boralex for about an hour every day. He told me that he would take this job more seriously and believed that his income would continue to increase in the future. The only obstacle to achieving tomorrow's ideal is today's hesitation. Take the first step bravely, and the wonderful future will unfold slowly before your eyes. </p>
+
+        <h2>Boralex</h2>
+
+        <p>💼 Many people think it's difficult to earn 500ZMW or 2000ZMW a day. But know that at Boralex, thanks to their hard work, many people earn 2000ZMW a day. Wanting to change without taking action is futile. Take the reins of your life and take action now! If you have unwavering determination and a burning desire to succeed, Boralex is here for you! Join us at Boralex and make your most ambitious dreams come true!👊💪🏼</p>
+
+            <p><a href="3.html">If you have already created a Boralex account and decided to join Boralex, please click here to view the detailed payment steps.</a></p>
+
     </div>
-    <!-- 头像裁剪模态框 -->
-    <div id="crop-modal">
-        <div id="crop-modal-content">
-            <canvas id="crop-canvas"></canvas>
-            <div id="crop-buttons">
-                <button onclick="zoomIn()">放大</button>
-                <button onclick="zoomOut()">缩小</button>
-                <!-- 调用 cropAndSetAvatar 函数时传入正确的头像元素 ID -->
-                <button onclick="cropAndSetAvatar('employee-avatar')">裁剪并应用</button>
-                <button onclick="closeCropModal()">取消</button>
-            </div>
-        </div>
+    <!-- 添加客服悬浮按钮
+    <div id="customer-service-button" onclick="openWhatsApp()">
+        <img src="https://i.imgur.com/tXz1rs5.png" alt="Customer Service">
     </div>
-    <script src="script.js"></script>
-    <script>
-        function generateQRCode() {
-            const link = prompt('请输入要生成二维码的链接：');
-            if (link) {
-                // 确保链接以 http 或 https 开头
-                const validLink = link.startsWith('http') ? link : `https://${link}`;
-                const qr = qrcode(0, 'L');
-                qr.addData(validLink);
-                qr.make();
-                const qrCodeDiv = document.getElementById('qr-code');
-                // 设置二维码图片大小，边距为 0
-                qrCodeDiv.innerHTML = qr.createImgTag(4, 0); 
-            }
-        }
-    </script>
+    <script src="js/base.js"></script> -->
 </body>
 
 </html>

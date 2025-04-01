@@ -4,47 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>证书生成器</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Welcome to Boralex</title>
+    <style>
+        /* 全局样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/QjNu8bl.png');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        /* 欢迎信息容器样式 */
+       .welcome-message {
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+            max-width: 80%; /* 限制内容最大宽度 */
+        }
+
+        /* 欢迎标题样式 */
+       .welcome-message h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2; /* 调整行高 */
+        }
+
+        /* 欢迎副标题样式 */
+       .welcome-message p {
+            font-size: 1.5rem;
+            line-height: 1.6; /* 调整行高 */
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 按钮样式 */
+       .welcome-button {
+            padding: 18px 35px;
+            font-size: 1.3rem;
+            background-color: rgba(255, 255, 255, 0.1); /* 透明背景 */
+            color: white;
+            border: none; /* 去除明显边框 */
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1); /* 虚化光影效果 */
+        }
+
+        /* 按钮悬停效果 */
+       .welcome-button:hover {
+            background-color: rgba(255, 255, 255, 0.3); /* 悬停时背景稍加深 */
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.4), 0 0 35px rgba(255, 255, 255, 0.3); /* 悬停时光影效果增强 */
+        }
+
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+           .welcome-message {
+                padding: 30px;
+            }
+
+           .welcome-message h1 {
+                font-size: 2.5rem;
+            }
+
+           .welcome-message p {
+                font-size: 1.2rem;
+            }
+
+           .welcome-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <nav>
-        <a href="index.html">证书制作</a>
-        <a href="2.html">工牌制作</a>
-        <a href="3.html">生成支付链接</a>
-    </nav>
-    <div class="main-container" id="main-container">
-        <div class="input-section">
-            <input type="text" id="name" placeholder="姓名">
-            <input type="text" id="phone" placeholder="手机号">
-            <input type="date" id="joinDate">
-            <input type="file" id="avatarInput" accept="image/*" onchange="openCropModal(this.files[0])">
-            <button onclick="generateCertificate()">生成证书</button>
-        </div>
-        <div class="certificate">
-            <img id="avatar" class="avatar" src="" alt="头像">
-            <div class="info">
-                <p id="nameDisplay"></p>
-                <p id="phoneDisplay"></p>
-                <p id="joinDateDisplay"></p>
-            </div>
-        </div>
+    <div class="welcome-message">
+        <h1>Welcome to Boralex!</h1>
+        <p>Embark on a rewarding journey with Boralex's part - time jobs. Unlock your potential, make a difference in clean energy, and earn a handsome income while you're at it. Join us now and transform your life!</p>
     </div>
-    <!-- 头像裁剪模态框 -->
-    <div id="crop-modal">
-        <div id="crop-modal-content">
-            <canvas id="crop-canvas"></canvas>
-            <div id="crop-buttons">
-                <button onclick="zoomIn()">放大</button>
-                <button onclick="zoomOut()">缩小</button>
-                <!-- 调用 cropAndSetAvatar 函数时传入正确的头像元素 ID -->
-                <button onclick="cropAndSetAvatar('avatar')">裁剪并应用</button>
-                <button onclick="closeCropModal()">取消</button>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <button class="welcome-button" onclick="enterWebsite()">Start Your Adventure</button>
+    <script>
+        function enterWebsite() {
+            // 设置用户已访问过欢迎页面
+            sessionStorage.setItem('visitedWelcomePage', 'true');
+            sessionStorage.setItem('access_granted', 'true');
+            sessionStorage.setItem('first_visit_index', 'false');
+            window.location.href = '1.html';
+        }
+    </script>
 </body>
 
 </html>

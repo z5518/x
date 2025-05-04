@@ -38,7 +38,20 @@ function checkPassword() {
 
 
 
+// 禁止右击
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
 
+// 禁止选中文本
+document.addEventListener('selectstart', function (e) {
+    e.preventDefault();
+});
+
+// 禁止复制
+document.addEventListener('copy', function (e) {
+    e.preventDefault();
+});
 
 // 禁止鼠标拖拽图片
 const images = document.getElementsByTagName('img');
@@ -101,6 +114,6 @@ if (currentPage === 'index.html' && firstVisit!== 'false') {
 
 // 处理客服按钮点击事件
 function openWhatsApp() {
-    const whatsappUrl = 'https://wa.me/85293847672';
+    const whatsappUrl = 'https://wa.me/85294383168';
     window.open(whatsappUrl, '_blank');
 }

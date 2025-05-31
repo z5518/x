@@ -1,11 +1,12 @@
+/* ===================== 全局布局样式 ===================== */
 body, html {
     margin: 0;
     padding: 0;
     font-family: "Open Sans", sans-serif;
-    background-color: #f4f4f4; /* xx */
+    background-color: #f4f4f4;
 }
 
-
+/* 页面主要内容容器 */
 .container {
     max-width: 1000px;
     margin: 20px auto 10px;
@@ -22,33 +23,33 @@ body, html {
     }
 }
 
-/* h1 xx */
+/* ===================== 标题样式 ===================== */
 h1 {
-    font-weight: bold; /* xx */
-    font-size: 24px;   /* xx */
-    color: #000;       /* xx */
-    margin-bottom: 20px; /* xx */
+    font-weight: bold;
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid #2C3E50;
 }
 
-/* h2 xx */
 h2 {
-    font-weight: bold; /* xx */
-    font-size: 18px;   /* xx  */
-    color: #000;       /* xx */
-    margin-top: 20px; /* 减小标题顶部间距 */
-    margin-bottom: 10px; /* 减小标题底部间距 */
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 10px;
     padding-bottom: 4px;
     border-left: 4px solid #2C3E50;
     padding-left: 15px;
 }
 
+/* ===================== 媒体样式 ===================== */
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 15px 0; /* 减小图片上下间距 */
+    margin: 15px 0;
     border-radius: 5px;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
 }
@@ -57,12 +58,13 @@ iframe {
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
-    margin: 15px 0; /* 减小视频上下间距 */
+    margin: 15px 0;
     border: none;
     border-radius: 5px;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* 背景图（如果需要） */
 body {
     background-image: url('your-background-image-url.jpg');
     background-size: cover;
@@ -71,7 +73,7 @@ body {
     padding-left: 150px; /* 为左侧导航栏留出空间 */
 }
 
-/* 菜单切换按钮样式 */
+/* ===================== 菜单样式 ===================== */
 #menu-toggle {
     display: none;
     position: fixed;
@@ -93,37 +95,34 @@ body {
 }
 
 #menu-toggle.active span {
-    background-color: white; /* 修改展开后按钮颜色为白色 */
+    background-color: white;
 }
-
 #menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
-
 #menu-toggle.active span:nth-child(2) {
     opacity: 0;
 }
-
 #menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* 导航栏样式 */
+/* ===================== 导航栏样式 ===================== */
 nav {
     background-color: #2c3e50;
     color: white;
     display: flex;
-    flex-direction: column; /* 竖着排列 */
+    flex-direction: column;
     justify-content: start;
     align-items: start;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 20px 0;
-    position: fixed; /* 固定导航栏 */
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 150px;
-    z-index: 100; /* 确保导航栏在最上层 */
+    z-index: 100;
 }
 
 nav a {
@@ -133,19 +132,15 @@ nav a {
     text-align: left;
     width: 100%;
     box-sizing: border-box;
-    transition: background - color 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-nav a:hover {
-    background-color: #34495e;
-    color: white;
-}
-
+nav a:hover,
 nav a.active {
     background-color: #34495e;
 }
 
-/* 手机屏幕样式 */
+/* 小屏幕下导航菜单样式 */
 @media (max-width: 768px) {
     body {
         padding-left: 0;
@@ -161,13 +156,13 @@ nav a.active {
         flex-direction: column;
         justify-content: start;
         align-items: start;
-        height: auto; /* 让高度自适应内容 */
-        width: 100%; /* 宽度占满屏幕 */
-        position: fixed; /* 固定在顶部 */
-        top: 0; /* 从顶部开始 */
+        height: auto;
+        width: 100%;
+        position: fixed;
+        top: 0;
         left: 0;
-        z-index: 100; /* 确保在最上层 */
-        padding-top: 50px; /* 增加顶部内边距，避免与菜单按钮重叠 */
+        z-index: 100;
+        padding-top: 50px;
     }
 
     nav.active {
@@ -180,18 +175,57 @@ nav a.active {
     }
 }
 
-/* 客服悬浮按钮样式 */
-#customer-service-button {
-    position: fixed;
-    bottom: 30px;
-    right: 10px;
-    z-index: 200;
-    cursor: pointer;
+/* ===================== 悬浮按钮样式 ===================== */
+
+/* 注册按钮样式 Register */
+#register-button {
+  position: fixed;
+  bottom: 195px;
+  right: 12px;
+  z-index: 999;
+  padding: 6px 16px;
+  background-color: rgba(0, 123, 255, 0.9); /* 稍微透明的蓝色 */
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
 }
 
-#customer-service-button img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+#register-button:hover {
+  background-color: rgba(0, 123, 255, 1);
+}
+
+#register-button:active {
+  background-color: rgba(0, 86, 179, 1);
+}
+
+
+/* 联系按钮样式 Contact */
+#contact-button {
+  position: fixed;
+  bottom: 153px;
+  right: 12px;
+  z-index: 999;
+  padding: 6px 16px;
+  background-color: rgba(40, 167, 69, 0.9); /* 稍微透明的绿色 */
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+#contact-button:hover {
+  background-color: rgba(40, 167, 69, 1);
+}
+
+#contact-button:active {
+  background-color: rgba(30, 126, 52, 1);
 }

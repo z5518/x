@@ -39,7 +39,19 @@ function checkPassword() {
 
 
 // 禁止右击
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
 
+// 禁止选中文本
+document.addEventListener('selectstart', function (e) {
+    e.preventDefault();
+});
+
+// 禁止复制
+document.addEventListener('copy', function (e) {
+    e.preventDefault();
+});
 
 // 禁止鼠标拖拽图片
 const images = document.getElementsByTagName('img');
@@ -100,8 +112,48 @@ if (currentPage === 'index.html' && firstVisit!== 'false') {
     window.location.href = 'welcome.html';
 }
 
-// 处理客服按钮点击事件
+
+
+
 function openWhatsApp() {
-    const whatsappUrl = 'https://wa.me/85294383168';
-    window.open(whatsappUrl, '_blank');
+  // 先从 URL 中获取参数
+  const params = new URLSearchParams(window.location.search);
+  let contactNumber = params.get('contact');
+
+  // 如果 URL 中没有，就从 sessionStorage 取
+  if (!contactNumber) {
+    contactNumber = sessionStorage.getItem('whatsapp_contact');
+  }
+
+  let whatsappUrl;
+  if (contactNumber && /^[0-9]+$/.test(contactNumber)) {
+    whatsappUrl = `https://wa.me/${contactNumber}`;
+  } else {
+    // 默认跳转你的号码
+    whatsappUrl = 'https://wa.me/';
+  }
+
+  window.open(whatsappUrl, '_blank');
+}
+
+
+
+
+
+function goToRegistration() {
+  const params = new URLSearchParams(window.location.search);
+  let code = params.get('code');
+
+  // 如果当前页面没有参数，就从 sessionStorage 取
+  if (!code) {
+    code = sessionStorage.getItem('invite_code');
+  }
+
+  // 设置默认邀请码
+  if (!code) {
+    code = '';
+  }
+
+  const registrationUrl = `https://www.nexterazm.org/account/signUp?code=${code}`;
+  window.open(registrationUrl, '_blank');
 }

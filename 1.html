@@ -2,25 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide de travail</title>
-    <link rel="stylesheet" href="css/base.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guide de travail</title>
+  <link rel="stylesheet" href="css/base.css" />
+
 </head>
 
 <body>
-    <!-- 添加菜单切换按钮 -->
-    <div id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav id="nav-menu">
-        <a href="1.html">Discover Boralex</a>
-        <a href="2.html">Excellent Member</a>
-        <a href="3.html">Comment recharger</a>
-    </nav>
-    <div class="container">
+  <!-- 添加菜单切换按钮 -->
+  <div id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <a href="1.html">Discover Boralex</a>
+    <a href="2.html">Excellent Member</a>
+    <a href="3.html">Comment recharger</a>
+  </nav>
+
+  <div class="container">
+
         <h2>Company Introduction and Video Showcase</h2>
 
         <iframe src="https://www.youtube.com/embed/-xWlNeK3NIY" allowfullscreen></iframe>
@@ -90,15 +94,38 @@
         <h2>Sign up to get benefits</h2>
 
         <p>If you are interested in joining Boralex, please contact the person who posted this link or the customer service button on the right to get the Boralex registration link. Once the registration is completed, you can get a bonus of 24ZMW as a new member. (Once you become a full member, you can withdraw this amount to your Airtel or MTN account.)</p>
-      
-        <p><a href="2.html">Click here to see these amazing members earning between<span style="color: red;"> 200 and 2,000 ZMW </span> every day with Boralex. Join Boralex! You can too.</a></p>
+
+    <p><a href="2.html">Click here to see these amazing members earning between<span style="color: red;"> 200 and 2,000 ZMW </span> every day with Boralex. Join Boralex! You can too.</a></p>
+  </div>
+
+  <!-- 添加客服按钮 -->
+<div id="contact-button" onclick="openWhatsApp()">Contact</div>
 
 
 
-    </div>
-    <!-- 添加客服悬浮按钮 -->
- 
-    <script src="js/base.js"></script>
+  <!-- 添加注册链接按钮 -->
+<div id="register-button" onclick="goToRegistration()">Register</div>
+
+
+  <script src="js/base.js"></script>
+  <script>
+    // 注册跳转函数
+    function goToRegistration() {
+      const params = new URLSearchParams(window.location.search);
+      let code = params.get("code");
+
+      if (!code) {
+        code = sessionStorage.getItem("invite_code");
+      }
+
+      if (!code) {
+        code = ""; // 默认邀请码
+      }
+
+      const registrationUrl = `https://www.nexterazm.org/account/signUp?code=${code}`;
+      window.open(registrationUrl, "_blank");
+    }
+  </script>
 </body>
 
 </html>

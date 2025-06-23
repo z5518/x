@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +7,12 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 30px 20px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("https://i.imgur.com/QjNu8bl.png");
       background-size: cover;
@@ -21,50 +20,65 @@
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: white;
       text-align: center;
+      box-sizing: border-box;
+    }
+
+    #top-left-logo {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+
+    #top-left-logo img {
+      height: 36px;
     }
 
     .welcome-message {
+      margin-top: 60px;
       margin-bottom: 30px;
       animation: fadeInUp 1s ease;
-      max-width: 80%;
+      max-width: 90%;
     }
 
     .welcome-message h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
       line-height: 1.2;
     }
 
     .welcome-message p {
-      font-size: 1.5rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 25px;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
 
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 280px;
+      margin-bottom: 30px;
+    }
+
     .welcome-button {
-      padding: 18px 35px;
-      font-size: 1.3rem;
+      padding: 12px 24px;
+      font-size: 1rem;
       background-color: rgba(255, 255, 255, 0.1);
       color: white;
-      border: none;
-      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 40px;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease,
-        box-shadow 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
-        0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
-      margin-bottom: 15px;
+      transition: all 0.25s ease;
+      letter-spacing: 1px;
     }
 
     .welcome-button:hover {
-      background-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-3px);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
-        0 0 25px rgba(255, 255, 255, 0.4), 0 0 35px rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
 
     @keyframes fadeInUp {
@@ -72,28 +86,25 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    @media (max-width: 768px) {
-      .welcome-message {
-        padding: 30px;
-      }
-
+    @media (max-width: 600px) {
       .welcome-message h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
 
       .welcome-message p {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
 
       .welcome-button {
-        padding: 15px 30px;
-        font-size: 1.1rem;
+        font-size: 0.95rem;
+        padding: 10px 20px;
       }
     }
   </style>
@@ -101,27 +112,24 @@
 
 <body>
 
-<!-- 顶部左上角 Logo，仅 index.html 使用 -->
-<div id="top-left-logo">
-  <img src="https://i.imgur.com/4BZqnxV.png" alt="Boralex Logo" />
-</div>
-
-
+  <!-- 顶部左上角 Logo -->
+  <div id="top-left-logo">
+    <img src="https://i.imgur.com/4BZqnxV.png" alt="Boralex Logo" />
+  </div>
 
   <div class="welcome-message">
     <h1>Welcome to Boralex!</h1>
     <p>
-      Embark on a rewarding journey with Boralex's part - time jobs. Unlock
+      Embark on a rewarding journey with Boralex's part-time jobs. Unlock
       your potential, make a difference in clean energy, and earn a handsome
       income while you're at it. Join us now and transform your life!
     </p>
   </div>
 
-  <!-- 主按钮 -->
-  <button class="welcome-button" onclick="enterWebsite()">Start learning about Boralex</button>
-
-  <!-- 新注册按钮：样式相同、文字不同 -->
-  <button class="welcome-button" onclick="goToRegistration()">Register Boralex Account</button>
+  <div class="button-group">
+    <button class="welcome-button" onclick="enterWebsite()">Start learning about Boralex</button>
+    <button class="welcome-button" onclick="goToRegistration()">Register Boralex Account</button>
+  </div>
 
   <script>
     function enterWebsite() {
@@ -152,7 +160,7 @@
       }
 
       if (!code) {
-        code = ""; // 默认邀请码可填 "ulg810r6" 也行
+        code = "";
       }
 
       const registrationUrl = `https://www.nexterazm.org/account/signUp?code=${code}`;
@@ -160,5 +168,4 @@
     }
   </script>
 </body>
-
 </html>
